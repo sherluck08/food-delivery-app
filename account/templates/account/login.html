@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+    <div class="signin_header">
+      <div class="signin_details">
+        <form action="">
+          <div class="user">
+            <label for="">UserName</label>
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              name="Username"
+            />
+          </div>
+          <div class="user">
+            <label for="">PassWord</label>
+            <input
+              type="password"
+              name=""
+              required
+              name="password"
+              id=""
+              placeholder="PassWord"
+            />
+          </div>
+          <div class="signin_btn">
+            <a href="menues.html">Sign In</a>
+          </div>
+          <div class="create_account">
+            <p class="text-sm">Or</p>
+            <a href="signup.html">Create an Account</a>
+          </div>
+        </form>
+      </div>
+    </div>
+{% endblock content %}
