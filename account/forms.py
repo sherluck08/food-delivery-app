@@ -12,3 +12,6 @@ class SignUpForm(UserCreationForm):
 class LoginForm(forms.Form):
     email = forms.EmailField(label="Email")
     password = forms.PasswordInput()
+
+    class Meta:
+        fields = ("email", "password")
