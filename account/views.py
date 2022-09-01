@@ -1,10 +1,21 @@
 from django.shortcuts import render, redirect
 from .forms import LoginForm, SignUpForm
+from django.contrib.auth import authenticate, login
 
 
 def login_view(request):
-    form = LoginForm()
-    return render(request, "account/login.html", {"form": form})
+    if request.method == "POST":
+        email = request.POST["email"]
+        password = request.POST["password"]
+        print(email)
+        print(password)
+        user = authenticate(request, email=email, password=password)
+        if user is not None:
+            login(request, user)
+            print("User is successfully logged in")
+            return redirect("account-login")
+
+    return render(request, "account/login.html")
 
 
 def register(request):

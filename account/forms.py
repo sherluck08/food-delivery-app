@@ -8,6 +8,12 @@ class SignUpForm(UserCreationForm):
         model = CustomUser
         fields = ("email", "phone_no", "first_name", "last_name", "password1", "password2")
 
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if CustomUser.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is already used")
+        return email
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label="Email")
