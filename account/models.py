@@ -10,6 +10,7 @@ class CustomUser(AbstractUser):
     phone_no = models.CharField(max_length=11)
     is_admin = models.BooleanField("Is admin", default=False)
     account_created_at = models.DateTimeField(auto_now_add=datetime.now)
+    delivery_address = models.TextField()
     username = None
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ("first_name", "last_name", "phone_no", "password1", "password2")
