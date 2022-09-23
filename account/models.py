@@ -6,14 +6,14 @@ from django import forms
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(_("email address"), unique=True)
+    username = models.EmailField(_("email address"), unique=True)
     phone_no = models.CharField(max_length=11)
     is_admin = models.BooleanField("Is admin", default=False)
     account_created_at = models.DateTimeField(auto_now_add=datetime.now)
-    delivery_address = models.TextField()
-    username = None
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ("first_name", "last_name", "phone_no", "password1", "password2")
+    delivery_address = models.TextField(default="")
+    USERNAME_FIELD = "username"
+    # REQUIRED_FIELDS = ("first_name", "last_name", "phone_no")
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return f"{self.email}"
