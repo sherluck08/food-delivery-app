@@ -16,6 +16,9 @@ class Food(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        return self.title
+
 
 class Category(models.Model):
     DRINKS_AND_BEVERAGES = "Drinks and Beverages"
@@ -33,12 +36,16 @@ class Category(models.Model):
         (CHICKEN, CHICKEN),
         (OTHER, OTHER),
     )
-    name = models.CharField(choices=category_choices, max_length=30)
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 
 class Order(models.Model):
     order_id = models.UUIDField(editable=False, unique=True, default=uuid.uuid4)
     order_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    quantity = models.IntegerField(name="Quantity")
     date_order = models.DateTimeField(auto_now_add=datetime.datetime)
     order_started = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
