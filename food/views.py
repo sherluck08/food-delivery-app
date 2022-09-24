@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from food.models import Food
 
 
 def home(request):
-    return render(request, "food/index.html")
+    foods = Food.objects.all()
+    context = {"foods": foods}
+    return render(request, "food/index.html", context=context)

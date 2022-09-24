@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm, SignUpForm
-from django.contrib.auth import authenticate, login
+from .forms import SignUpForm
+from django.contrib.auth import authenticate, login, logout
 
 
 def login_view(request):
@@ -9,11 +9,11 @@ def login_view(request):
         password = request.POST["password"]
         print(email)
         print(password)
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
             print("User is successfully logged in")
-            return redirect("account-login")
+            return redirect("food-homepage")
 
     return render(request, "account/login.html")
 
@@ -31,3 +31,8 @@ def register(request):
             return redirect("account-login")
         return render(request, "account/register.html", {"form": form})
     return render(request, "account/register.html", {"form": form})
+
+
+def log_out(request):
+    logout(request)
+    return redirect("account-login")

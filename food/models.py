@@ -9,7 +9,7 @@ class Food(models.Model):
     description = models.TextField()
     price = models.FloatField(null=False)
     availability = models.BooleanField(default=True)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="images")
     category = models.ForeignKey(
         "Category",
         on_delete=models.SET_NULL,

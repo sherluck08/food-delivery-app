@@ -1,0 +1,47 @@
+{% extends "admin_page/admin_base.html" %}
+{% load widget_tweaks %}
+
+{% block title %} Admin - Home {% endblock title %}
+
+{% block right-side-content %}
+  <div class="add-food p-4 w-100">
+    <h2 class="mb-4">Add to Menu</h2>
+    <div class="row">
+      <div class="col-md-5">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Dish Title</label>
+            {% render_field menu_form.title|add_class:"form-control" %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Dish Description</label>
+            {% render_field menu_form.description|add_class:"form-control" rows="4" cols="20" %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Price</label>
+            {% render_field menu_form.price|add_class:"form-control" %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Dish Image</label>
+            {% render_field menu_form.image|add_class:"form-control" %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Price</label>
+            {% render_field menu_form.category|add_class:"form-control" %}
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add To Menu</button>
+
+        </form>
+      </div>
+    </div>
+    
+  </div>
+{% endblock right-side-content %}
+
+

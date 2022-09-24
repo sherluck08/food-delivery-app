@@ -6,13 +6,13 @@ from django import forms
 class SignUpForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ("email", "phone_no", "first_name", "last_name", "password1", "password2")
+        fields = ("username", "phone_no", "first_name", "last_name", "password1", "password2")
 
     def clean_email(self):
-        email = self.cleaned_data.get("email")
-        if CustomUser.objects.filter(email=email).exists():
+        username = self.cleaned_data.get("username")
+        if CustomUser.objects.filter(username=username).exists():
             raise forms.ValidationError("This email is already used")
-        return email
+        return username
 
 
 class LoginForm(forms.Form):

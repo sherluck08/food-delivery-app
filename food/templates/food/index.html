@@ -56,114 +56,27 @@
   <div class="container">
     <div class="menus">
       <div class="menu_content">
-        <div class="food jollofrice">
-          <a href="Home-food/rice.html">
-          <img src="image/jollofrice.jpg" alt="">
-          <div class="food_content jollofrice_content">
-          <p><strong>Dishname:</strong> <span class="text-sm"> Jollof Rice</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#1,500</span></p>
+
+      {% if foods %}
+        {% for food in foods %}
+          <div class="food jollofrice">
+            <a href="{{ food.id }}">
+            <img src="{{ food.image.url}}" alt="">
+            <div class="food_content jollofrice_content">
+            <p><strong>Dishname:</strong> <span class="text-sm">{{ food.title }}</span></p>
+            <p><strong>Price:</strong> <span class="text-sm">#{{ food.price }}</span></p>
+            </div>
+            <div class="food_link jollofrice_link">
+              <a class="btn_link" href="Home-food/rice.html">Order Now</a>
+            </div>
+            </a>
           </div>
-          <div class="food_link jollofrice_link">
-            <a class="btn_link" href="Home-food/rice.html">Order Now</a>
-          </div>
-          </a>
-        </div>
-      <div class="food chicken">
-        <a href="Home-food/chicken.html">
-        <img src="image/chinken4.jpg" alt="">
-        <div class="food_content chinken_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">Chicken</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#1,200</span></p>
-        </div>
-        <div class="food_link chicken_link">
-        <a class="btn_link" href="Home-food/chicken.html">Order Now</a>
-        </div>
-        </a>
-      </div>
-      <div class="food chips_burger">
-        <a href="Home-food/chips-buurger.html">
-        <img src="image/chips&bugr.jpg" alt="">
-        <div class="food_content chips_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">Chips And Burger</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#2,500</span></p>
-        </div>
-        <div class="food_link chips_link">
-          <a class="btn_link" href="Home-food/chips-buurger.html">Order Now</a>
-        </div>
-        </a>
-      </div>
-      <div class="food rice_chicken">
-        <a href="Home-food/rice-chicken.html">
-        <img src="image/rice&chicken.jpg" alt="">
-        <div class="food_content rice_chicken_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">Rice And Chicken </span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#2,200</span></p>
-        </div>
-        <div class="food_link rice_chicken-link">
-          <a class="btn_link" href="Home-food/rice-chicken.html">Order Now</a>
-        </div>
-        </a>
-      </div>
-      <div class="food sandwish">
-        <a href="Home-food/sandwich.html">
-        <img src="image/sandwich.jpg" alt="">
-        <div class="food_content sandwish_content">
-          <p><strong>Dishname:</strong><span class="text-sm">Sandwich</span></p>
-          <p><strong>Price:</strong><span class="text-sm">#2,300</span></p>
-        </div>
-        <div class="food_link sandwish_link">
-          <a class="btn_link" href="Home-food/sandwich.html">Order Now</a>
-      </div>
-      </a>
-      </div>
-      <div class="food salad">
-        <a href="Home-food/salad.html">
-        <img src="image/salad (2).jpg" alt="">
-        <div class="food_content salad_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">Salad</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#1,000</span></p>
-        </div>
-        <div class="food_link salad_link"> 
-          <a class="btn_link" href="Home-food/salad.html">Order Now</a>
-        </div>
-        </a>
-      </div>
-      <div class="food pancake">
-        <a href="Home-food/pancake.html">
-        <img src="image/pancake (2).jpg" alt="">
-        <div class="food_content pancake_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">PanCake</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#900</span></p>
-        </div>
-        <div class="food_link pancake_link"> 
-          <a class="btn_link" href="Home-food/pancake.html">Order Now</a>
-        </div>
-      </a>
-      </div>
-      <div class="food pasta">
-        <a href="Home-food/pasta.html">
-        <img src="image/pasta (2).jpg" alt="">
-        <div class="food_content pasta_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">Pasta</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#2,100</span></p>
-        </div>
-        <div class="food_link pasta-link"> 
-          <a class="btn_link" href="Home-food/pasta.html">Order Now</a>
-        </div>
-        </a>
-      </div>
-      <div class="food spaghetti">
-        <a href="Home-food/spaghetti.html">
-        <img src="image/spaghetti.jpg" alt="">
-        <div class="food_content spaghetti_content">
-          <p><strong>Dishname:</strong> <span class="text-sm">Spaghetti</span></p>
-          <p><strong>Price:</strong> <span class="text-sm">#2,300</span></p>
-        </div>
-        <div class="food_link spaghetti-link"> 
-          <a class="btn_link" href="Home-food/spaghetti.html">Order Now</a>
-        </div>
-        </a>
-      </div>
+        {% endfor %}
+      {% else %}
+        <h2>No food available yet</h2>
+      {% endif %}
+
+        
     </div>
   </div>
   </div>

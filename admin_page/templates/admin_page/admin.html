@@ -1,0 +1,20 @@
+{% extends "admin_page/admin_base.html" %}
+
+{% block title %} Admin - Home {% endblock title %}
+
+{% block right-side-content %}
+  <div class="side-left-dashboard">
+  <div class="users">
+    <p class="text-md">Users</p>
+    <p><strong></strong>{{ user_count }}</p>
+  </div>
+  <div class="users">
+    <p class="text-md">Menus</p>
+    <p><strong></strong>{{ no_of_foods }}</p>
+  </div>
+  <div class="users">
+    <p class="text-md">Orders</p>
+    <p><strong></strong>{{ no_of_orders }}</p>
+  </div>
+</div>
+{% endblock right-side-content %}

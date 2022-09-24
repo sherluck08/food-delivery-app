@@ -6,7 +6,7 @@ from django import forms
 
 
 class CustomUser(AbstractUser):
-    username = models.EmailField(_("email address"), unique=True)
+    username = models.EmailField(_("emai address"), unique=True)
     phone_no = models.CharField(max_length=11)
     is_admin = models.BooleanField("Is admin", default=False)
     account_created_at = models.DateTimeField(auto_now_add=datetime.now)
