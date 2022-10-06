@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from food.models import Food, Cart, CustomUser
+from food.models import Food, CustomUser, Cart
 
 
 def home(request):
@@ -32,4 +32,4 @@ def add_to_cart(request, user_id, food_id):
         cart = Cart(food=food, order_by=user, price=food.price)
         cart.save()
 
-    return render(request, "food/add_to_cart.html")
+    return render(request, "food/cart.html")

@@ -11,11 +11,7 @@ class Food(models.Model):
     price = models.FloatField(null=False)
     availability = models.BooleanField(default=True)
     image = models.ImageField(upload_to="images")
-    category = models.ForeignKey(
-        "Category",
-        on_delete=models.SET_NULL,
-        null=True,
-    )
+    category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.title
@@ -55,7 +51,7 @@ class Order(models.Model):
 class Cart(models.Model):
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
     order_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    order_id = models.UUIDField(unique=True)
+    order_id = models.UUIDField(unique=True, blank=False, default=uuid.uuid4())
     quantity = models.IntegerField(null=False, blank=False, default=1)
     price = models.UUIDField(editable=False, unique=True, default=uuid.uuid4)
     created_at = models.DateTimeField(auto_now_add=True)

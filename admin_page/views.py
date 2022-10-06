@@ -20,7 +20,7 @@ def add_to_menu(request):
             menu_form.save()
             title = request.POST.get("title")
             messages.success(request, f"successfully added {title} to the menu")
-            return redirect("admin_page-menu")
+            return redirect("admin_page-menus")
         else:
             messages.error(request, f"unable to add item to the menu, {menu_form.errors}")
             return redirect("admin_page-add-to-menu")
@@ -49,7 +49,6 @@ def update_menu(request, menu_id):
     if request.method == "POST":
         menu_form = AddToMenuForm(request.POST, request.FILES)
         if menu_form.is_valid():
-
             menu_form = AddToMenuForm(instance=food)
             return redirect("admin_page-menus")
         else:
