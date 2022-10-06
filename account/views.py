@@ -7,14 +7,11 @@ def login_view(request):
     if request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
-        print(email)
-        print(password)
         user = authenticate(request, username=email, password=password)
         if user is not None:
             login(request, user)
             print("User is successfully logged in")
             return redirect("food-homepage")
-
     return render(request, "account/login.html")
 
 

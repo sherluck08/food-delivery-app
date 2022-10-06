@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block title %}  {% endblock title %}
+
+{% block content %}
+  <div class="order_menu">
+    <div class="move_to_cart">
+      <img src="{{ food.image.url }}" alt="">
+      <div class="menu_detail">
+        <div class="user_data">
+          <p><strong>Name:</strong> <span class="text-sm">{{ food.title }}</span></p>
+          <p><strong>Details:</strong> <span class="text-sm">{{ food.description }}</span></p>
+          <p><strong>Price:</strong> <span class="text-sm">N{{ food.price }}</span></p>
+          <button type="submit" class="btn btn-success p-2" href="">Buy Now</button>
+          <a class="btn btn-success p-2" href="{% url 'food-cart' request.user.id food.id %}">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

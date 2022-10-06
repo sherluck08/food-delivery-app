@@ -1,3 +1,4 @@
+from enum import unique
 from django.db import models
 from account.models import CustomUser
 import datetime
@@ -49,3 +50,12 @@ class Order(models.Model):
     date_order = models.DateTimeField(auto_now_add=datetime.datetime)
     order_started = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
+
+
+class Cart(models.Model):
+    food = models.ForeignKey(Food, on_delete=models.CASCADE)
+    order_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    order_id = models.UUIDField(unique=True)
+    quantity = models.IntegerField(null=False, blank=False, default=1)
+    price = models.UUIDField(editable=False, unique=True, default=uuid.uuid4)
+    created_at = models.DateTimeField(auto_now_add=True)

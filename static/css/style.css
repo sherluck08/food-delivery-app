@@ -677,7 +677,6 @@ select {
   box-shadow: 1px 5px 15px #d4d1d1;
   width: 100%;
   font-weight: 900;
-  font-family: cursive;
   padding: 1.5rem;
 }
 /* Add Admin */
@@ -698,7 +697,7 @@ select {
 .admin_navbar p {
   color: #000;
   font-weight: 900;
-  font-family: cursive;
+  
   font-size: 1.2rem;
   text-shadow: 5px 5px 5px #8b8b8b;
 }
@@ -707,7 +706,6 @@ select {
   color: rgb(0, 81, 255);
   font-weight: 900;
   font-size: 1.2rem;
-  font-family: cursive;
 }
 @media (max-width: 1080px) {
   .menu_content {

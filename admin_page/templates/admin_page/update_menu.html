@@ -1,0 +1,58 @@
+{% extends "admin_page/admin_base.html" %}
+{% load widget_tweaks %}
+
+{% block title %} Admin - Update Menu {% endblock title %}
+
+{% block right-side-content %}
+  <div class="add-food p-4 w-100">
+    <h2 class="mb-4">Update Menu</h2>
+
+    {% include "messages.html" %}
+    
+    <div class="row">
+      <div class="col-md-5">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Dish Title</label>
+            {% render_field menu_form.title|add_class:"form-control" value=food.title %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Dish Description</label>
+            <textarea class="form-control" rows="4" cols="20" name="description">{{ food.description }}</textarea>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Price</label>
+            {% render_field menu_form.price|add_class:"form-control" value=food.price %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Dish Image</label>
+            {% if food.image.url %}
+                <div class="card mb-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="{{ food.image.url }}">
+                    </div>
+                </div>
+            {% else %}
+            {% endif %}
+            {% render_field menu_form.image|add_class:"form-control" %}
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold">Price</label>
+            {% render_field menu_form.category|add_class:"form-control" value=food.category.id %}
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add To Menu</button>
+
+        </form>
+      </div>
+    </div>
+    
+  </div>
+{% endblock right-side-content %}
+
+

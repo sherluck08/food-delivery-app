@@ -6,6 +6,9 @@
 {% block right-side-content %}
   <div class="add-food p-4 w-100">
     <h2 class="mb-4">Add to Menu</h2>
+
+    {% include "messages.html" %}
+    
     <div class="row">
       <div class="col-md-5">
         <form method="post" enctype="multipart/form-data">

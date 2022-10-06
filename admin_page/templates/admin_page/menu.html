@@ -3,11 +3,12 @@
 {% block title %} Admin - Menu {% endblock title %}
 
 {% block right-side-content %}
- <div class="menu m-4">
+ <div class="container-fluid menu m-4">
+ {% include "messages.html" %}
   <div class="row">
      {% if foods %}
         {% for food in foods %}
-          <div class="col-md-4">
+          <div class="col-md-3 mb-2">
             
             <div class="card" style="width: 18rem;">
               <img src="{{ food.image.url }}" class="card-img-top" alt="{{ food.title }}">
@@ -20,12 +21,10 @@
                 <a href="{{ food.url }}" class="btn btn-danger">Delete</a>
               </div>
             </div>
-           
-
           </div>
         {% endfor %}
      {% else %}
-        <div class="col-md-4">
+        <div class="col-md-3">
           <h2>No food available yet</h2>
         </div>
      {% endif %}

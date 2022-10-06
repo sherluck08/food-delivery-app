@@ -5,16 +5,19 @@
 {% block right-side-content %}
   <div class="side-left-dashboard">
   <div class="users">
-    <p class="text-md">Users</p>
-    <p><strong></strong>{{ user_count }}</p>
+    <div class="mb-4"><i class="fa-solid fa-user fa-2xl"></i></div>
+    <p class="fw-bold">Users</p>
+    <p>{{ user_count }}</p>
   </div>
   <div class="users">
-    <p class="text-md">Menus</p>
-    <p><strong></strong>{{ no_of_foods }}</p>
+    <div class="mb-4"><i class="fa-solid fa-table-list fa-2xl"></i></div>
+    <p class="fw-bold">Menus</p>
+    <p>{{ no_of_foods }}</p>
   </div>
   <div class="users">
-    <p class="text-md">Orders</p>
-    <p><strong></strong>{{ no_of_orders }}</p>
+    <div class="mb-4"><i class="fa-solid fa-list-check fa-2xl"></i></i></div>
+    <p class="fw-bold">Orders</p>
+    <p>{{ no_of_orders }}</p>
   </div>
 </div>
 {% endblock right-side-content %}
