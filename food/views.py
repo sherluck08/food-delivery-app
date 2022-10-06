@@ -24,7 +24,9 @@ def checkout(request):
 def add_to_cart(request, user_id, food_id):
     food = Food.objects.filter(id=food_id).get()
     user = CustomUser.objects.filter(id=user_id).get()
-    check_cart = Cart.objects.filter(id=user_id, food=food).get()
+    print(food)
+    print(user_id)
+    check_cart = Cart.objects.filter(order_by=user_id, food=food)
     print(f"{check_cart=}")
     if check_cart:
         print(f"Already added {food.title} to cart")
